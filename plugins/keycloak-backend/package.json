@@ -1,0 +1,108 @@
+{
+  "name": "@internal/backstage-plugin-keycloak-backend",
+  "version": "1.9.12",
+  "description": "A Backend backend plugin for Keycloak",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public",
+    "main": "dist/index.cjs.js",
+    "types": "dist/index.d.ts"
+  },
+  "backstage": {
+    "role": "backend-plugin-module",
+    "supported-versions": "1.26.5"
+  },
+  "exports": {
+    ".": "./src/index.ts",
+    "./alpha": "./src/alpha.ts",
+    "./package.json": "./package.json"
+  },
+  "typesVersions": {
+    "*": {
+      "alpha": [
+        "src/alpha.ts"
+      ],
+      "package.json": [
+        "package.json"
+      ]
+    }
+  },
+  "scripts": {
+    "build": "backstage-cli package build",
+    "clean": "backstage-cli package clean",
+    "export-dynamic": "janus-cli package export-dynamic-plugin --embed-package @keycloak/keycloak-admin-client --no-embed-as-dependencies",
+    "lint": "backstage-cli package lint",
+    "postpack": "backstage-cli package postpack",
+    "postversion": "yarn run export-dynamic",
+    "prepack": "backstage-cli package prepack",
+    "start": "opener http://localhost:8080/admin/master/console/#/janus-realm && opener http://localhost:7007/catalog/entities && turbo run start:plugin start:keycloak",
+    "start:keycloak": "podman run -p 8080:8080 -e 'KEYCLOAK_ADMIN=admin' -e 'KEYCLOAK_ADMIN_PASSWORD=admin' -v ./__fixtures__/keycloak-realm.json:/opt/keycloak/data/import/keycloak-realm.json$([[ $OSTYPE = linux* ]] && echo ':z') quay.io/keycloak/keycloak:22.0.1 start-dev --import-realm",
+    "start:plugin": "backstage-cli package start",
+    "test": "backstage-cli package test --passWithNoTests --coverage",
+    "tsc": "tsc"
+  },
+  "dependencies": {
+    "@backstage/backend-common": "^0.21.7",
+    "@backstage/backend-plugin-api": "^0.6.17",
+    "@backstage/backend-tasks": "^0.5.22",
+    "@backstage/catalog-model": "^1.4.5",
+    "@backstage/config": "^1.2.0",
+    "@backstage/plugin-catalog-node": "^1.11.1",
+    "@backstage/backend-dynamic-feature-service": "^0.2.9",
+    "@keycloak/keycloak-admin-client": "<19.0.0",
+    "lodash": "^4.17.21",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@backstage/backend-app-api": "0.7.2",
+    "@backstage/backend-test-utils": "0.3.7",
+    "@backstage/cli": "0.26.4",
+    "@backstage/plugin-auth-node": "0.4.12",
+    "@backstage/plugin-catalog-backend": "1.21.1",
+    "@backstage/plugin-permission-common": "0.7.13",
+    "@backstage/plugin-permission-node": "0.7.28",
+    "@janus-idp/cli": "1.10.0",
+    "@types/lodash": "4.17.4",
+    "@types/supertest": "2.0.16",
+    "@types/uuid": "9.0.8",
+    "deepmerge": "4.3.1",
+    "express": "4.19.2",
+    "luxon": "3.4.4",
+    "msw": "1.3.3",
+    "opener": "1.5.2",
+    "supertest": "6.3.4"
+  },
+  "files": [
+    "dist",
+    "config.d.ts",
+    "dist-dynamic/*.*",
+    "dist-dynamic/dist/**",
+    "dist-dynamic/alpha/*",
+    "app-config.janus-idp.yaml"
+  ],
+  "eslintConfig": {
+    "rules": {
+      "no-warning-comments": "off"
+    }
+  },
+  "configSchema": "config.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/janus-idp/backstage-plugins",
+    "directory": "plugins/keycloak-backend"
+  },
+  "keywords": [
+    "support:production",
+    "lifecycle:active",
+    "backstage",
+    "plugin"
+  ],
+  "homepage": "https://red.ht/rhdh",
+  "bugs": "https://github.com/janus-idp/backstage-plugins/issues",
+  "maintainers": [
+    "@janus-idp/maintainers-plugins"
+  ],
+  "author": "Red Hat"
+}

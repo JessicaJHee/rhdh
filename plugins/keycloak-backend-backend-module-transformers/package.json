@@ -1,0 +1,38 @@
+{
+  "name": "@internal/backstage-plugin-keycloak-backend-backend-module-transformers",
+  "description": "The transformers backend module for the keycloak-backend plugin.",
+  "version": "0.1.0",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "license": "Apache-2.0",
+  "private": true,
+  "publishConfig": {
+    "access": "public",
+    "main": "dist/index.cjs.js",
+    "types": "dist/index.d.ts"
+  },
+  "backstage": {
+    "role": "backend-plugin-module"
+  },
+  "scripts": {
+    "start": "backstage-cli package start",
+    "build": "backstage-cli package build",
+    "lint": "backstage-cli package lint",
+    "test": "backstage-cli package test",
+    "clean": "backstage-cli package clean",
+    "prepack": "backstage-cli package prepack",
+    "postpack": "backstage-cli package postpack"
+  },
+  "dependencies": {
+    "@backstage/backend-common": "^0.21.6",
+    "@backstage/backend-plugin-api": "^0.6.9",
+    "@internal/backstage-plugin-keycloak-backend": "*"
+  },
+  "devDependencies": {
+    "@backstage/backend-test-utils": "^0.3.7",
+    "@backstage/cli": "0.26.4"
+  },
+  "files": [
+    "dist"
+  ]
+}

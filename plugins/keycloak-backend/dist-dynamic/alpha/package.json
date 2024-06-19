@@ -1,0 +1,5 @@
+{
+  "name": "@janus-idp/backstage-plugin-keycloak-backend-dynamic",
+  "version": "1.9.12",
+  "main": "../dist/alpha.cjs.js"
+}
