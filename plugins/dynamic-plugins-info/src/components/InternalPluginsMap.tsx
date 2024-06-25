@@ -107,6 +107,8 @@ export const InternalPluginsMap: Record<string, string> = {
     './dynamic-plugins/dist/backstage-plugin-tech-radar',
   '@janus-idp/backstage-plugin-analytics-provider-segment':
     './dynamic-plugins/dist/janus-idp-backstage-plugin-analytics-provider-segment',
+  'backstage-plugin-catalog-backend-module-msgraph-dynamic':
+    './dynamic-plugins/dist/backstage-plugin-catalog-backend-module-msgraph-dynamic',
 };
 
 export const getNotEnabledInternalPlugins = (enabledPlugins: string[]) => {
