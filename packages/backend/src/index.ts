@@ -105,4 +105,10 @@ backend.add(import('./modules/authProvidersModule'));
 backend.add(import('@internal/plugin-dynamic-plugins-info-backend'));
 backend.add(import('@internal/plugin-scalprum-backend'));
 
+backend.add(
+  import(
+    '@internal/backstage-plugin-catalog-backend-module-ms-graph-transformer'
+  ),
+);
+
 backend.start();
