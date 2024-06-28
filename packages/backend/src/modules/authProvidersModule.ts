@@ -22,6 +22,8 @@ import {
   oidcSignInResolvers,
 } from '@internal/plugin-auth-backend-module-oidc-provider';
 
+import { ConfigSources } from '@backstage/config-loader';
+
 /**
  * Function is responsible for signing in a user with the catalog user and
  * creating an entity reference based on the provided name parameter.
@@ -43,6 +45,52 @@ async function signInWithCatalogUserOptional(
 
     return Promise.resolve(signedInUser);
   } catch (e) {
+    const userEntityRef = stringifyEntityRef({
+      kind: 'User',
+      name: name,
+      namespace: DEFAULT_NAMESPACE,
+    });
+
+    return ctx.issueToken({
+      claims: {
+        sub: userEntityRef,
+        ent: [userEntityRef],
+      },
+    });
+  }
+}
+
+/**
+ * Function is responsible for signing in a user with the catalog user and
+ * creating an entity reference based on the provided name parameter.
+ * If the user exist in the catalog , it returns the signed-in user.
+ * If an error occurs, it issues a token with the user entity reference if
+ * the environment is development, otherwise an error will be thrown in
+ * production mode.
+ *
+ * @param name
+ * @param ctx
+ * @returns
+ */
+async function signInWithCatalogUserOptionalInDev(
+  name: string,
+  ctx: AuthResolverContext,
+) {
+  const configSource = await ConfigSources.default({});
+  const config = await ConfigSources.toConfig(configSource);
+  const isDevEnv = config.getString('auth.environment') === 'development';
+  try {
+    const signedInUser = await ctx.signInWithCatalogUser({
+      entityRef: { name },
+    });
+
+    return Promise.resolve(signedInUser);
+  } catch (e) {
+    if (!isDevEnv) {
+      throw new Error(
+        `Sign in failed because users/groups have not been ingested.`,
+      );
+    }
     const userEntityRef = stringifyEntityRef({
       kind: 'User',
       name: name,
@@ -138,7 +186,7 @@ function getAuthProviderFactory(providerId: string): AuthProviderFactory {
                 `GitHub user profile does not contain a username`,
               );
             }
-            return await signInWithCatalogUserOptional(userId, ctx);
+            return await signInWithCatalogUserOptionalInDev(userId, ctx);
           },
         },
       });
