@@ -4,6 +4,8 @@ import {
   configApiRef,
   createApiFactory,
   discoveryApiRef,
+  googleAuthApiRef,
+  microsoftAuthApiRef,
   oauthRequestApiRef,
 } from '@backstage/core-plugin-api';
 import {
@@ -20,6 +22,7 @@ import {
   CustomDataApiClient,
   customDataApiRef,
 } from './api/CustomDataApiClient';
+import { kubernetesAuthProvidersApiRef, KubernetesAuthProviders } from '@backstage/plugin-kubernetes';
 
 export const apis: AnyApiFactory[] = [
   createApiFactory({
@@ -99,4 +102,27 @@ export const apis: AnyApiFactory[] = [
         environment: configApi.getOptionalString('auth.environment'),
       }),
   }),
+  // Kube oidc
+  // Define the custom Kubernetes auth providers API factory
+  createApiFactory({
+    api: kubernetesAuthProvidersApiRef,
+    deps: {
+      oidcAuthApi: oidcAuthApiRef,
+      googleAuthApi: googleAuthApiRef,
+      microsoftAuthApi: microsoftAuthApiRef,
+    },
+    factory: ({
+      oidcAuthApi,
+      googleAuthApi,
+      microsoftAuthApi,
+    }) => {
+      return new KubernetesAuthProviders({
+        microsoftAuthApi,
+        googleAuthApi,
+        oidcProviders: {
+          oidc: oidcAuthApi,
+        },
+      });
+    },
+  })
 ];

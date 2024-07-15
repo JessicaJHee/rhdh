@@ -1,0 +1,16 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: test-repo
+  title: Test
+  description: |
+    This is a test repo for Backstage-showcase
+  links:
+    - title: My Github Org
+      url: https://github.com/Zaperex-Test-Org
+  annotations:
+    backstage.io/kubernetes-id: developer-hub
+spec:
+  type: website
+  lifecycle: unknown
+  owner: janus-authors
