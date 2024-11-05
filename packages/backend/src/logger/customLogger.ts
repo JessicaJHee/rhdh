@@ -67,8 +67,8 @@ export const transports = {
         frequency: config?.getOptionalString('rotateFile.frequency'),
         zippedArchive: config?.getOptionalBoolean('rotateFile.zippedArchive'),
         utc: config?.getOptionalBoolean('rotateFile.utc'),
-        maxSize: config?.getOptionalString('rotateFile.maxSize'),
-        maxFiles: config?.getOptional('rotateFile.maxFilesOrDays'),
+        maxSize: config?.getOptionalString('rotateFile.maxSize') || '50m',
+        maxFiles: config?.getOptional('rotateFile.maxFilesOrDays') || '15',
       }),
     ];
   },

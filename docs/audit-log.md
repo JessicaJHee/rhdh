@@ -73,7 +73,7 @@ auditLog:
     frequency: '12h' # Default: `custom`
     dateFormat: 'YYYY-MM-DD' # Default: `YYYY-MM-DD`
     utc: false # Default: `false`
-    maxSize: 100m # Default: undefined
+    maxSize: 100m # Default: 50m
 ```
 
 `frequency` options include:
@@ -133,7 +133,7 @@ auditLog:
 
 To set a maximum log file size before rotation (which would add a count suffix to the filename upon reaching the size limit): Ex: `redhat-developer-hub-audit-2024-07-22.log.3`.
 
-To configure `maxSize`, provide a number followed by one of `k`, `m`, or `g` to specify the file size in kilobytes, megabytes, or gigabytes. No `maxSize` is configured by default.
+To configure `maxSize`, provide a number followed by one of `k`, `m`, or `g` to specify the file size in kilobytes, megabytes, or gigabytes. `maxSize` is set to `50m` by default.
 
 ```yaml
 auditLog:
@@ -143,7 +143,7 @@ auditLog:
 
 #### Configuring File Retention Policy
 
-By default, log files are not deleted or archived. You can configure the maximum number of files to keep:
+By default, a maximum of 15 log files will be kept. You can configure the maximum number of files to keep:
 
 ```yaml
 auditLog:
@@ -158,6 +158,17 @@ auditLog:
   rotateFile:
     maxFilesOrDays: 5d # Deletes logs older than 5 days
 ```
+
+#### Configuring File Rotation and Retention Based on Disk Space
+
+The default `maxSize` and `maxFilesOrDays` values (`50MB` per file, 15 max files) are set with respect to a 1GB disk where the file rotation is begins when the disk is 75% full.
+
+To set optimal log rotation values:
+
+1.	Set `maxSize`: Choose a file size depending the expected log volume to allow for manageable log file sizes without excessive file rotations.
+
+2.	Set `maxFilesOrDays`: Adjust based on your available disk space. 
+    > $\ maxFilesOrDays = \frac{\text{diskSize} \times \text{diskUsageThreshold} (\%)}{\text{maxSize}}$
 
 ---
 
