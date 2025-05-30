@@ -97,4 +97,7 @@ backend.add(import('@internal/plugin-dynamic-plugins-info-backend'));
 backend.add(import('@internal/plugin-scalprum-backend'));
 backend.add(import('@internal/plugin-licensed-users-info-backend'));
 
+backend.add(import('@alithya-oss/backstage-plugin-rag-ai-backend'));
+backend.add(import('@internal/plugin-rag-ai-backend-module-ollama'));
+
 backend.start();

@@ -28,7 +28,8 @@
     "new": "backstage-cli new --scope internal",
     "repo:fix": "backstage-cli repo fix --publish",
     "versions:metadata": "node ./scripts/update-metadata.mjs",
-    "versions:bump": "node ./scripts/update-backstage.mjs"
+    "versions:bump": "node ./scripts/update-backstage.mjs",
+    "dev:create-embeddings": "node ./create-embeddings.js"
   },
   "workspaces": {
     "packages": [

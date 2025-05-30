@@ -20,6 +20,7 @@
     "prettier:fix": "prettier --ignore-unknown --write ."
   },
   "dependencies": {
+    "@alithya-oss/backstage-plugin-rag-ai-backend": "^2.0.8",
     "@backstage-community/plugin-rbac-backend": "6.1.0",
     "@backstage-community/plugin-rbac-node": "1.10.0",
     "@backstage-community/plugin-scaffolder-backend-module-annotator": "2.5.0",

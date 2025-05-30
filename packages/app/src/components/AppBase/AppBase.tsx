@@ -19,6 +19,7 @@ import { ScaffolderPage } from '@backstage/plugin-scaffolder';
 import { ScaffolderFieldExtensions } from '@backstage/plugin-scaffolder-react';
 import { SearchPage as BackstageSearchPage } from '@backstage/plugin-search';
 import { UserSettingsPage } from '@backstage/plugin-user-settings';
+import { RagModal } from '@alithya-oss/backstage-plugin-rag-ai';
 
 import getDynamicRootConfig from '../../utils/dynamicUI/getDynamicRootConfig';
 import { entityPage } from '../catalog/EntityPage';
@@ -126,6 +127,7 @@ const AppBase = () => {
               </Route>
               <Route path="/catalog-graph" element={<CatalogGraphPage />} />
               <Route path="/learning-paths" element={<LearningPaths />} />
+              <RagModal />
               {dynamicRoutes.map(
                 ({ Component, staticJSXContent, path, config: { props } }) => {
                   return (
