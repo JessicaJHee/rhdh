@@ -161,4 +161,7 @@ backend.add(import('@internal/plugin-dynamic-plugins-info-backend'));
 backend.add(import('@internal/plugin-scalprum-backend'));
 backend.add(import('@internal/plugin-licensed-users-info-backend'));
 
+backend.add(import('@backstage-community/plugin-catalog-backend-module-keycloak'));
+backend.add(import('@backstage-community/plugin-events-backend-module-keycloak'));
+
 backend.start();
