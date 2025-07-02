@@ -148,6 +148,8 @@ const TOPIC_USER_REMOVE_GROUP = 'admin.GROUP_MEMBERSHIP-DELETE';
 const TOPIC_GROUP_CREATE = 'admin.GROUP-CREATE';
 const TOPIC_GROUP_DELETE = 'admin.GROUP-DELETE';
 const TOPIC_GROUP_UPDATE = 'admin.GROUP-UPDATE';
+const TOPIC_USER_LOGIN = 'access.LOGIN';
+
 
 /**
  * Ingests org data (users and groups) from Keycloak.
@@ -289,7 +291,8 @@ export class KeycloakOrgEntityProvider implements EntityProvider {
         if (
           eventPayload.type === TOPIC_USER_CREATE ||
           eventPayload.type === TOPIC_USER_DELETE ||
-          eventPayload.type === TOPIC_USER_UPDATE
+          eventPayload.type === TOPIC_USER_UPDATE ||
+          eventPayload.type === TOPIC_USER_LOGIN
         ) {
           await this.onUserEvent({
             logger,
@@ -361,13 +364,18 @@ export class KeycloakOrgEntityProvider implements EntityProvider {
     const logger = options?.logger ?? this.options.logger;
     const provider = this.options.provider;
     const client = options.client;
+
+    if (options.eventPayload.type === TOPIC_USER_LOGIN) {
+      await this.handleUserLogin(options.eventPayload.authDetails.userId, client, provider, logger);
+    }
+    
     const userId = options.eventPayload.resourcePath.split('/')[1];
 
     if (options.eventPayload.type === TOPIC_USER_CREATE) {
       await this.handleUserCreate(userId, client, provider, logger);
     }
     if (options.eventPayload.type === TOPIC_USER_DELETE) {
-      await this.handleUserDelete(userId, client, provider, logger);
+      await this.handleUserDelete(userId, logger);
     }
 
     if (options.eventPayload.type === TOPIC_USER_UPDATE) {
@@ -417,7 +425,65 @@ export class KeycloakOrgEntityProvider implements EntityProvider {
     });
   }
 
- private async handleUserDelete(
+  private async handleUserLogin(
+    userId: string,
+    client: KeycloakAdminClient,
+    provider: KeycloakProviderConfig,
+    logger: LoggerService,
+  ): Promise<void> {
+    await ensureTokenValid(client, provider, logger);
+    const userSignedIn = await client.users.findOne({ id: userId });
+
+    if (!userSignedIn) {
+      logger.debug(
+        `Failed to fetch user with ID ${userId} after LOGIN event`,
+      );
+      return;
+    }
+
+    const { token } = await this.options.auth.getPluginRequestToken({
+      onBehalfOf: await this.options.auth.getOwnServiceCredentials(),
+      targetPluginId: 'catalog',
+    });
+    const {
+      items: [userEntity],
+    } = await this.catalogApi.getEntities(
+      {
+        filter: {
+          kind: 'User',
+          [`metadata.annotations.${KEYCLOAK_ID_ANNOTATION}`]: userId,
+        },
+      },
+      { token },
+    );
+
+    if (userEntity) {
+      return;
+    }
+
+    const newUserEntity = await parseUser(
+      userSignedIn,
+      provider.realm,
+      [],
+      new Map(),
+      this.options.userTransformer,
+    );
+
+    if (!newUserEntity) {
+      logger.debug(`Failed to parse user entity for user ID ${userId}`);
+      return;
+    }
+
+    const { added } = this.addEntitiesOperation([newUserEntity]);
+
+    await this.connection!.applyMutation({
+      type: 'delta',
+      added: added,
+      removed: [],
+    });
+  }
+
+  private async handleUserDelete(
     userId: string,
     logger: LoggerService,
   ): Promise<void> {
@@ -1006,7 +1072,7 @@ export class KeycloakOrgEntityProvider implements EntityProvider {
     for (const [userEntityRef] of userMembershipsToUpdate.entries()) {
       const userEntityInCatalog = await this.catalogApi.getEntityByRef(
         userEntityRef,
-        {token}
+        { token }
       );
       if (userEntityInCatalog?.metadata.annotations?.[KEYCLOAK_ID_ANNOTATION]) {
         oldUserEntities.push(userEntityInCatalog);
@@ -1048,13 +1114,13 @@ export class KeycloakOrgEntityProvider implements EntityProvider {
                 email: userFromKeycloak.email,
                 ...(userFromKeycloak.firstName || userFromKeycloak.lastName
                   ? {
-                      displayName: [
-                        userFromKeycloak.firstName,
-                        userFromKeycloak.lastName,
-                      ]
-                        .filter(Boolean)
-                        .join(' '),
-                    }
+                    displayName: [
+                      userFromKeycloak.firstName,
+                      userFromKeycloak.lastName,
+                    ]
+                      .filter(Boolean)
+                      .join(' '),
+                  }
                   : {}),
               },
               memberOf: allGroups.flatMap(g => (g?.name ? [g.name] : [])),
