@@ -65,6 +65,7 @@
     "@backstage/plugin-search-backend-module-catalog": "0.3.10",
     "@backstage/plugin-search-backend-module-pg": "0.5.50",
     "@backstage/plugin-user-settings-backend": "0.3.8",
+    "@internal/backstage-plugin-catalog-backend-module-github-org-transformer": "workspace:^",
     "@internal/plugin-dynamic-plugins-info-backend": "*",
     "@internal/plugin-licensed-users-info-backend": "*",
     "@internal/plugin-scalprum-backend": "*",
