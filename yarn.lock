@@ -3498,6 +3498,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@backstage/catalog-model@npm:^1.7.6":
+  version: 1.7.6
+  resolution: "@backstage/catalog-model@npm:1.7.6"
+  dependencies:
+    "@backstage/errors": ^1.2.7
+    "@backstage/types": ^1.2.2
+    ajv: ^8.10.0
+    lodash: ^4.17.21
+  checksum: dc9350b4d1dc8bdd8f388b37cacf8dfa8d32509f87be500a9c6fbec2223a0c154cc609498ae7c5f4ae27c58b4fb1023b4f41bd754cd3def6ea3cd8cfe922d60b
+  languageName: node
+  linkType: hard
+
 "@backstage/cli-common@npm:^0.1.15":
   version: 0.1.15
   resolution: "@backstage/cli-common@npm:0.1.15"
@@ -4753,6 +4765,25 @@ __metadata:
     "@backstage/plugin-catalog-backend": ^3.0.1
     "@backstage/plugin-events-node": ^0.4.14
   checksum: 0b7dd4ad11808990f97c205d7e941cb46421d6043014a310b06325315aa5446d06213f6269c2e622095dea01922c83ccd5025b3f1dbb10ebbfaf3b6907ee3db3
+  languageName: node
+  linkType: hard
+
+"@backstage/plugin-catalog-backend-module-msgraph@npm:^0.7.3":
+  version: 0.7.3
+  resolution: "@backstage/plugin-catalog-backend-module-msgraph@npm:0.7.3"
+  dependencies:
+    "@azure/identity": ^4.0.0
+    "@backstage/backend-plugin-api": ^1.4.2
+    "@backstage/catalog-model": ^1.7.5
+    "@backstage/config": ^1.3.3
+    "@backstage/plugin-catalog-common": ^1.1.5
+    "@backstage/plugin-catalog-node": ^1.18.0
+    "@microsoft/microsoft-graph-types": ^2.6.0
+    lodash: ^4.17.21
+    p-limit: ^3.0.2
+    qs: ^6.9.4
+    uuid: ^11.0.0
+  checksum: 8053282da77b47565078dfaa8dfabbd21ddd20584eb9f15ab78a40030fab13ea3bf6ab4aa75ccf7fd5c3fbbd7a1eb6aeb2abfb29179172f8e915bf9930b9e834
   languageName: node
   linkType: hard
 
@@ -8077,6 +8108,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@internal/backstage-plugin-catalog-backend-module-msgraph-transformer@workspace:^, @internal/backstage-plugin-catalog-backend-module-msgraph-transformer@workspace:plugins/catalog-backend-module-msgraph-transformer":
+  version: 0.0.0-use.local
+  resolution: "@internal/backstage-plugin-catalog-backend-module-msgraph-transformer@workspace:plugins/catalog-backend-module-msgraph-transformer"
+  dependencies:
+    "@backstage/backend-plugin-api": ^1.4.2
+    "@backstage/backend-test-utils": 1.8.0
+    "@backstage/catalog-model": ^1.7.6
+    "@backstage/cli": 0.34.1
+    "@backstage/plugin-catalog-backend-module-msgraph": ^0.7.3
+  languageName: unknown
+  linkType: soft
+
 "@internal/plugin-dynamic-plugins-info-backend@*, @internal/plugin-dynamic-plugins-info-backend@workspace:plugins/dynamic-plugins-info-backend":
   version: 0.0.0-use.local
   resolution: "@internal/plugin-dynamic-plugins-info-backend@workspace:plugins/dynamic-plugins-info-backend"
@@ -9160,6 +9203,13 @@ __metadata:
   version: 2.0.1
   resolution: "@microsoft/fetch-event-source@npm:2.0.1"
   checksum: a50e1c0f33220206967266d0a4bbba0703e2793b079d9f6e6bfd48f71b2115964a803e14cf6e902c6fab321edc084f26022334f5eaacc2cec87f174715d41852
+  languageName: node
+  linkType: hard
+
+"@microsoft/microsoft-graph-types@npm:^2.6.0":
+  version: 2.43.1
+  resolution: "@microsoft/microsoft-graph-types@npm:2.43.1"
+  checksum: 07e4b03ff48f0dcce763227a3a764aac8f3620e45a52c72e57e7583c6ebe47a2374cdb51b9d215fe72b5f5341e9f3ddd93c5712bb5c0202457f516ba7a32365e
   languageName: node
   linkType: hard
 
@@ -19761,6 +19811,7 @@ __metadata:
     "@backstage/plugin-search-backend-module-catalog": 0.3.7
     "@backstage/plugin-search-backend-module-pg": 0.5.47
     "@backstage/plugin-user-settings-backend": 0.3.5
+    "@internal/backstage-plugin-catalog-backend-module-msgraph-transformer": "workspace:^"
     "@internal/plugin-dynamic-plugins-info-backend": "*"
     "@internal/plugin-licensed-users-info-backend": "*"
     "@internal/plugin-scalprum-backend": "*"
