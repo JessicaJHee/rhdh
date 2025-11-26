@@ -168,4 +168,9 @@ backend.add(import('@internal/plugin-licensed-users-info-backend'));
 
 backend.add(userSettingsBackend);
 
+backend.add(
+  import(
+    '@internal/backstage-plugin-catalog-backend-module-gitlab-org-transformer'
+  ),
+);
 backend.start();

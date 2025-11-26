@@ -3229,6 +3229,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@backstage/backend-app-api@npm:^1.3.0":
+  version: 1.3.0
+  resolution: "@backstage/backend-app-api@npm:1.3.0"
+  dependencies:
+    "@backstage/backend-plugin-api": ^1.5.0
+    "@backstage/config": ^1.3.6
+    "@backstage/errors": ^1.2.7
+  checksum: cf2c8b6136be7e06ce848704a736b2943378e790fcf5bb9fc1a79a44c69ffe3d80b6cceb60554948e186d9acb89c1cb479b6c0f9c5eaf7097c065a5b5b01f409
+  languageName: node
+  linkType: hard
+
 "@backstage/backend-defaults@npm:0.12.0, @backstage/backend-defaults@npm:^0.12.0":
   version: 0.12.0
   resolution: "@backstage/backend-defaults@npm:0.12.0"
@@ -3310,6 +3321,90 @@ __metadata:
     "@google-cloud/cloud-sql-connector":
       optional: true
   checksum: bacb5c88246eb9aa7731bb0f46ee43c3b90faf5eca24735a4d2fe3cd7575a0404441158667e77a7acaf9fcd3755722de9066792c3e718bee39c8c480dfb78209
+  languageName: node
+  linkType: hard
+
+"@backstage/backend-defaults@npm:^0.13.1":
+  version: 0.13.1
+  resolution: "@backstage/backend-defaults@npm:0.13.1"
+  dependencies:
+    "@aws-sdk/abort-controller": ^3.347.0
+    "@aws-sdk/client-codecommit": ^3.350.0
+    "@aws-sdk/client-s3": ^3.350.0
+    "@aws-sdk/credential-providers": ^3.350.0
+    "@aws-sdk/types": ^3.347.0
+    "@azure/storage-blob": ^12.5.0
+    "@backstage/backend-app-api": ^1.3.0
+    "@backstage/backend-dev-utils": ^0.1.5
+    "@backstage/backend-plugin-api": ^1.5.0
+    "@backstage/cli-node": ^0.2.15
+    "@backstage/config": ^1.3.6
+    "@backstage/config-loader": ^1.10.6
+    "@backstage/errors": ^1.2.7
+    "@backstage/integration": ^1.18.2
+    "@backstage/integration-aws-node": ^0.1.19
+    "@backstage/plugin-auth-node": ^0.6.9
+    "@backstage/plugin-events-node": ^0.4.17
+    "@backstage/plugin-permission-node": ^0.10.6
+    "@backstage/types": ^1.2.2
+    "@google-cloud/storage": ^7.0.0
+    "@keyv/memcache": ^2.0.1
+    "@keyv/redis": ^4.0.1
+    "@keyv/valkey": ^1.0.1
+    "@manypkg/get-packages": ^1.1.3
+    "@octokit/rest": ^19.0.3
+    "@opentelemetry/api": ^1.9.0
+    "@types/cors": ^2.8.6
+    "@types/express": ^4.17.6
+    archiver: ^7.0.0
+    base64-stream: ^1.0.0
+    better-sqlite3: ^12.0.0
+    compression: ^1.7.4
+    concat-stream: ^2.0.0
+    cookie: ^0.7.0
+    cors: ^2.8.5
+    cron: ^3.0.0
+    express: ^4.17.1
+    express-promise-router: ^4.1.0
+    express-rate-limit: ^7.5.0
+    fs-extra: ^11.2.0
+    git-url-parse: ^15.0.0
+    helmet: ^6.0.0
+    infinispan: ^0.12.0
+    is-glob: ^4.0.3
+    jose: ^5.0.0
+    keyv: ^5.2.1
+    knex: ^3.0.0
+    lodash: ^4.17.21
+    logform: ^2.3.2
+    luxon: ^3.0.0
+    minimatch: ^9.0.0
+    mysql2: ^3.0.0
+    node-fetch: ^2.7.0
+    node-forge: ^1.3.1
+    p-limit: ^3.1.0
+    path-to-regexp: ^8.0.0
+    pg: ^8.11.3
+    pg-connection-string: ^2.3.0
+    pg-format: ^1.0.4
+    rate-limit-redis: ^4.2.0
+    raw-body: ^2.4.1
+    selfsigned: ^2.0.0
+    tar: ^6.1.12
+    triple-beam: ^1.4.1
+    uuid: ^11.0.0
+    winston: ^3.2.1
+    winston-transport: ^4.5.0
+    yauzl: ^3.0.0
+    yn: ^4.0.0
+    zod: ^3.22.4
+    zod-to-json-schema: ^3.20.4
+  peerDependencies:
+    "@google-cloud/cloud-sql-connector": ^1.4.0
+  peerDependenciesMeta:
+    "@google-cloud/cloud-sql-connector":
+      optional: true
+  checksum: 8a9a1feca3a1a7dcca8c7cd05e651168b7a2ed485ddc2043b671827f7465fa609ad29416dfdc3b03dfb5ce97494b9d6f945ce921a2a46efbdbd0ce470e1688d0
   languageName: node
   linkType: hard
 
@@ -3423,6 +3518,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@backstage/backend-plugin-api@npm:^1.5.0":
+  version: 1.5.0
+  resolution: "@backstage/backend-plugin-api@npm:1.5.0"
+  dependencies:
+    "@backstage/cli-common": ^0.1.15
+    "@backstage/config": ^1.3.6
+    "@backstage/errors": ^1.2.7
+    "@backstage/plugin-auth-node": ^0.6.9
+    "@backstage/plugin-permission-common": ^0.9.3
+    "@backstage/plugin-permission-node": ^0.10.6
+    "@backstage/types": ^1.2.2
+    "@types/express": ^4.17.6
+    "@types/json-schema": ^7.0.6
+    "@types/luxon": ^3.0.0
+    json-schema: ^0.4.0
+    knex: ^3.0.0
+    luxon: ^3.0.0
+    zod: ^3.22.4
+  checksum: 2994e06a6833178da5c6eaea33889102f654bbaf73c3915af4b19f117f615a74c7d44d7458165c45add32d14455ad2ebbd35d93330181d945049b936724d6932
+  languageName: node
+  linkType: hard
+
 "@backstage/backend-test-utils@npm:1.8.0":
   version: 1.8.0
   resolution: "@backstage/backend-test-utils@npm:1.8.0"
@@ -3486,6 +3603,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@backstage/catalog-client@npm:^1.12.1":
+  version: 1.12.1
+  resolution: "@backstage/catalog-client@npm:1.12.1"
+  dependencies:
+    "@backstage/catalog-model": ^1.7.6
+    "@backstage/errors": ^1.2.7
+    cross-fetch: ^4.0.0
+    uri-template: ^2.0.0
+  checksum: bf2de77b3ebc06c07f2cd223bf1fc798c2c7cd66d2175f69ce3eeb52008650c8a33ec6e4383ed79134daa86debc01525f23a4525a3c1b098dc69e09900c9f6ce
+  languageName: node
+  linkType: hard
+
 "@backstage/catalog-model@npm:1.7.5, @backstage/catalog-model@npm:^1.7.4, @backstage/catalog-model@npm:^1.7.5":
   version: 1.7.5
   resolution: "@backstage/catalog-model@npm:1.7.5"
@@ -3495,6 +3624,18 @@ __metadata:
     ajv: ^8.10.0
     lodash: ^4.17.21
   checksum: 3f8d646268f31020f61a28139906f706b58b6dcf4ea51c4f8475c3a4a4437855406e12dd8cdb0792a7807d491d3a93971f2eb382919667806063a21844396df2
+  languageName: node
+  linkType: hard
+
+"@backstage/catalog-model@npm:^1.7.6":
+  version: 1.7.6
+  resolution: "@backstage/catalog-model@npm:1.7.6"
+  dependencies:
+    "@backstage/errors": ^1.2.7
+    "@backstage/types": ^1.2.2
+    ajv: ^8.10.0
+    lodash: ^4.17.21
+  checksum: dc9350b4d1dc8bdd8f388b37cacf8dfa8d32509f87be500a9c6fbec2223a0c154cc609498ae7c5f4ae27c58b4fb1023b4f41bd754cd3def6ea3cd8cfe922d60b
   languageName: node
   linkType: hard
 
@@ -3518,6 +3659,22 @@ __metadata:
     semver: ^7.5.3
     zod: ^3.22.4
   checksum: a5523f8cfe37a851bb29040d4421d76b21dc17a665584edb99fa483a5f19adfd18765cf5dd2bfce3363356749b67710daff933012f040fe2dd33e0045fc6d44b
+  languageName: node
+  linkType: hard
+
+"@backstage/cli-node@npm:^0.2.15":
+  version: 0.2.15
+  resolution: "@backstage/cli-node@npm:0.2.15"
+  dependencies:
+    "@backstage/cli-common": ^0.1.15
+    "@backstage/errors": ^1.2.7
+    "@backstage/types": ^1.2.2
+    "@manypkg/get-packages": ^1.1.3
+    "@yarnpkg/parsers": ^3.0.0
+    fs-extra: ^11.2.0
+    semver: ^7.5.3
+    zod: ^3.22.4
+  checksum: 9e11ce0acbcbea0c3e8aadb3569cc8fb9e6df9b4118e83375cb14d4b3f9f682476b604a722d66a1860d6a3cde8a499a16061de3f50a8746258d5c3f433b0bd6e
   languageName: node
   linkType: hard
 
@@ -3688,6 +3845,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@backstage/config-loader@npm:^1.10.6":
+  version: 1.10.6
+  resolution: "@backstage/config-loader@npm:1.10.6"
+  dependencies:
+    "@backstage/cli-common": ^0.1.15
+    "@backstage/config": ^1.3.6
+    "@backstage/errors": ^1.2.7
+    "@backstage/types": ^1.2.2
+    "@types/json-schema": ^7.0.6
+    ajv: ^8.10.0
+    chokidar: ^3.5.2
+    fs-extra: ^11.2.0
+    json-schema: ^0.4.0
+    json-schema-merge-allof: ^0.8.1
+    json-schema-traverse: ^1.0.0
+    lodash: ^4.17.21
+    minimist: ^1.2.5
+    typescript-json-schema: ^0.65.0
+    yaml: ^2.0.0
+  checksum: 7e6cb18f9ecf6076885212616574d624f7c212ada7f4dc0831f5c8f0a600bd7fec0dff5506776e5bbbce767cc52e9afc73b670fd28a57f9bf191cd848ec33e38
+  languageName: node
+  linkType: hard
+
 "@backstage/config@npm:1.3.3, @backstage/config@npm:^1.3.2, @backstage/config@npm:^1.3.3":
   version: 1.3.3
   resolution: "@backstage/config@npm:1.3.3"
@@ -3696,6 +3876,17 @@ __metadata:
     "@backstage/types": ^1.2.1
     ms: ^2.1.3
   checksum: 68af5827c551542c809cbcddde61685ec3ff65379c8a92500671defffa7466bf6223352ae51a3d30b685e3678a7f570ad4921da3450744e080c2a976412ff488
+  languageName: node
+  linkType: hard
+
+"@backstage/config@npm:^1.3.6":
+  version: 1.3.6
+  resolution: "@backstage/config@npm:1.3.6"
+  dependencies:
+    "@backstage/errors": ^1.2.7
+    "@backstage/types": ^1.2.2
+    ms: ^2.1.3
+  checksum: eceac228ed740f61368c959738d6b81a8c2218bb6176e5304e13f4d98f92888c1276d9b1f29f51c0eea862e6625c6c847ba93cb4fe6dab7b20f48001e6040df6
   languageName: node
   linkType: hard
 
@@ -4202,6 +4393,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@backstage/integration-aws-node@npm:^0.1.19":
+  version: 0.1.19
+  resolution: "@backstage/integration-aws-node@npm:0.1.19"
+  dependencies:
+    "@aws-sdk/client-sts": ^3.350.0
+    "@aws-sdk/credential-provider-node": ^3.350.0
+    "@aws-sdk/credential-providers": ^3.350.0
+    "@aws-sdk/types": ^3.347.0
+    "@aws-sdk/util-arn-parser": ^3.310.0
+    "@backstage/config": ^1.3.6
+    "@backstage/errors": ^1.2.7
+  checksum: f5c9285d029debd9ca8e8c0d6cb4d18985477bef4d5c8212911445dc9eebc32717d72f71cf6d2584464761f7581bac69840b69d90a24b35d43c766183f300053
+  languageName: node
+  linkType: hard
+
 "@backstage/integration-react@npm:1.2.9":
   version: 1.2.9
   resolution: "@backstage/integration-react@npm:1.2.9"
@@ -4259,6 +4465,24 @@ __metadata:
     lodash: ^4.17.21
     luxon: ^3.0.0
   checksum: bbb4eb31c1f3f2c71af46aadc6176207a5fc37f2b39268aa52690ccc4a0bced1f3445dc454959d7ec90acbf81d441414c3abba6b41724ca8c774de4d0a9c8605
+  languageName: node
+  linkType: hard
+
+"@backstage/integration@npm:^1.18.2":
+  version: 1.18.2
+  resolution: "@backstage/integration@npm:1.18.2"
+  dependencies:
+    "@azure/identity": ^4.0.0
+    "@azure/storage-blob": ^12.5.0
+    "@backstage/config": ^1.3.6
+    "@backstage/errors": ^1.2.7
+    "@octokit/auth-app": ^4.0.0
+    "@octokit/rest": ^19.0.3
+    cross-fetch: ^4.0.0
+    git-url-parse: ^15.0.0
+    lodash: ^4.17.21
+    luxon: ^3.0.0
+  checksum: 5d037450c4673a0eada8df7f000d4294b970b67c7937fa875165e7bac96a04943f1e8438fe2de06bd6ddfd39777e56c553a6b0cbe30cf1442ed49ae5399f3d67
   languageName: node
   linkType: hard
 
@@ -4714,6 +4938,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@backstage/plugin-auth-node@npm:^0.6.9":
+  version: 0.6.9
+  resolution: "@backstage/plugin-auth-node@npm:0.6.9"
+  dependencies:
+    "@backstage/backend-plugin-api": ^1.5.0
+    "@backstage/catalog-client": ^1.12.1
+    "@backstage/catalog-model": ^1.7.6
+    "@backstage/config": ^1.3.6
+    "@backstage/errors": ^1.2.7
+    "@backstage/types": ^1.2.2
+    "@types/express": ^4.17.6
+    "@types/passport": ^1.0.3
+    express: ^4.17.1
+    jose: ^5.0.0
+    lodash: ^4.17.21
+    passport: ^0.7.0
+    zod: ^3.22.4
+    zod-to-json-schema: ^3.21.4
+    zod-validation-error: ^3.4.0
+  checksum: a69d61db47ef088daa25d2bfd134c6225235bee4277cec4fa22befb13d1a40fa50f8481432edb9a7f3601e20c15fa31b894184ff1875331d42f281b170076e87
+  languageName: node
+  linkType: hard
+
 "@backstage/plugin-auth-react@npm:0.1.18":
   version: 0.1.18
   resolution: "@backstage/plugin-auth-react@npm:0.1.18"
@@ -4742,6 +4989,58 @@ __metadata:
     "@backstage/integration": ^1.17.1
     cross-fetch: ^4.0.0
   checksum: a92ce22e57f8ea84f99a51c644cda5f72400a4fc4b6571cf349aee311ce415ff62a9ababbbb17be91866353f071219ecce98c566db172c9b2e7328a612f5c370
+  languageName: node
+  linkType: hard
+
+"@backstage/plugin-catalog-backend-module-gitlab-org@npm:0.2.12":
+  version: 0.2.12
+  resolution: "@backstage/plugin-catalog-backend-module-gitlab-org@npm:0.2.12"
+  dependencies:
+    "@backstage/backend-plugin-api": ^1.4.2
+    "@backstage/plugin-catalog-backend-module-gitlab": ^0.7.2
+    "@backstage/plugin-catalog-node": ^1.18.0
+    "@backstage/plugin-events-node": ^0.4.14
+  checksum: a5389148849000738201a96a86d8b19041feb11fca6d065b6ef7abc938ae0c05d8b251a652beb55aac9787c90eb696009d1efde276beb3db48dfdb1483eab27d
+  languageName: node
+  linkType: hard
+
+"@backstage/plugin-catalog-backend-module-gitlab@npm:0.7.2":
+  version: 0.7.2
+  resolution: "@backstage/plugin-catalog-backend-module-gitlab@npm:0.7.2"
+  dependencies:
+    "@backstage/backend-defaults": ^0.12.0
+    "@backstage/backend-plugin-api": ^1.4.2
+    "@backstage/catalog-model": ^1.7.5
+    "@backstage/config": ^1.3.3
+    "@backstage/integration": ^1.17.1
+    "@backstage/plugin-catalog-common": ^1.1.5
+    "@backstage/plugin-catalog-node": ^1.18.0
+    "@backstage/plugin-events-node": ^0.4.14
+    "@gitbeaker/rest": ^40.0.3
+    lodash: ^4.17.21
+    node-fetch: ^2.7.0
+    uuid: ^11.0.0
+  checksum: 18f7473ef42e8af244b6935a652787e02abfab7b429af4d978e78c047de8ec00606a4829eb2372ed7fed71ba89184e6d1a0cc697c7d393ecd8b288e10972b473
+  languageName: node
+  linkType: hard
+
+"@backstage/plugin-catalog-backend-module-gitlab@npm:^0.7.2":
+  version: 0.7.5
+  resolution: "@backstage/plugin-catalog-backend-module-gitlab@npm:0.7.5"
+  dependencies:
+    "@backstage/backend-defaults": ^0.13.1
+    "@backstage/backend-plugin-api": ^1.5.0
+    "@backstage/catalog-model": ^1.7.6
+    "@backstage/config": ^1.3.6
+    "@backstage/integration": ^1.18.2
+    "@backstage/plugin-catalog-common": ^1.1.7
+    "@backstage/plugin-catalog-node": ^1.20.0
+    "@backstage/plugin-events-node": ^0.4.17
+    "@gitbeaker/rest": ^40.0.3
+    lodash: ^4.17.21
+    node-fetch: ^2.7.0
+    uuid: ^11.0.0
+  checksum: 735e03ce8ceb5e32afc8517293a74b28283b4ece25c59304e720ad9b09a4f7483a9e0d2608c1bf7e276a0780bea9b6f0a69f28fa6bb647f943013555dbb73f0e
   languageName: node
   linkType: hard
 
@@ -4835,6 +5134,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@backstage/plugin-catalog-common@npm:^1.1.7":
+  version: 1.1.7
+  resolution: "@backstage/plugin-catalog-common@npm:1.1.7"
+  dependencies:
+    "@backstage/catalog-model": ^1.7.6
+    "@backstage/plugin-permission-common": ^0.9.3
+    "@backstage/plugin-search-common": ^1.2.21
+  checksum: 7597194f561e115f9c82544db41dfaade29668d2348a415ec94ed96f9bc8faa767fd5a365e4af74df8809d9af7dec5ecf3fa9a070a4948de05d9490aeacba63c
+  languageName: node
+  linkType: hard
+
 "@backstage/plugin-catalog-graph@npm:0.4.22":
   version: 0.4.22
   resolution: "@backstage/plugin-catalog-graph@npm:0.4.22"
@@ -4920,6 +5230,24 @@ __metadata:
     lodash: ^4.17.21
     yaml: ^2.0.0
   checksum: 3688cf7b7e7b47a2f2cc02836bd6f41d35d9de88f3072d3993eb9364709485763bd35f4142b8a3fcb45b6fa36327a2b47b6bfd27eeeb61caf1c2cb517909ed50
+  languageName: node
+  linkType: hard
+
+"@backstage/plugin-catalog-node@npm:^1.20.0":
+  version: 1.20.0
+  resolution: "@backstage/plugin-catalog-node@npm:1.20.0"
+  dependencies:
+    "@backstage/backend-plugin-api": ^1.5.0
+    "@backstage/catalog-client": ^1.12.1
+    "@backstage/catalog-model": ^1.7.6
+    "@backstage/errors": ^1.2.7
+    "@backstage/plugin-catalog-common": ^1.1.7
+    "@backstage/plugin-permission-common": ^0.9.3
+    "@backstage/plugin-permission-node": ^0.10.6
+    "@backstage/types": ^1.2.2
+    lodash: ^4.17.21
+    yaml: ^2.0.0
+  checksum: c56a2ba1e1ba15a41774c71601444741ba18f6e3ab8b0779d55b7269769992421804db4e3ab1e7a464b40e68544161c324d04134e3ad6cbaea69d411c02249b5
   languageName: node
   linkType: hard
 
@@ -5073,6 +5401,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@backstage/plugin-events-node@npm:^0.4.17":
+  version: 0.4.17
+  resolution: "@backstage/plugin-events-node@npm:0.4.17"
+  dependencies:
+    "@backstage/backend-plugin-api": ^1.5.0
+    "@backstage/errors": ^1.2.7
+    "@backstage/types": ^1.2.2
+    "@types/content-type": ^1.1.8
+    "@types/express": ^4.17.6
+    content-type: ^1.0.5
+    cross-fetch: ^4.0.0
+    express: ^4.17.1
+    uri-template: ^2.0.0
+  checksum: 9c6beb53c60189b6ceb5f63f1ebae07b4e408a65599c1509403df02bf31a6bab36808d4e840da5f283624b3efe7aa0b5d6369fc7786fb428a75ea7e9dae382d8
+  languageName: node
+  linkType: hard
+
 "@backstage/plugin-home-react@npm:^0.1.29":
   version: 0.1.29
   resolution: "@backstage/plugin-home-react@npm:0.1.29"
@@ -5201,6 +5546,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@backstage/plugin-permission-common@npm:^0.9.3":
+  version: 0.9.3
+  resolution: "@backstage/plugin-permission-common@npm:0.9.3"
+  dependencies:
+    "@backstage/config": ^1.3.6
+    "@backstage/errors": ^1.2.7
+    "@backstage/types": ^1.2.2
+    cross-fetch: ^4.0.0
+    uuid: ^11.0.0
+    zod: ^3.22.4
+    zod-to-json-schema: ^3.20.4
+  checksum: 5967b54b3b7e0761790bf7eac37be9c7b1ff92f07616dc13a5696b8c44eb01f99f166e749b34bb757ef28ceda2ab14984bc1b78f9ce658c31132d5adb5c5a474
+  languageName: node
+  linkType: hard
+
 "@backstage/plugin-permission-node@npm:^0.10.3, @backstage/plugin-permission-node@npm:^0.10.4":
   version: 0.10.4
   resolution: "@backstage/plugin-permission-node@npm:0.10.4"
@@ -5216,6 +5576,24 @@ __metadata:
     zod: ^3.22.4
     zod-to-json-schema: ^3.20.4
   checksum: fc29a4168a2f04f539383f578f2fe930ea284568f6b1c804a39801611a3f39c60bc7a3a1c35ed95dcf7a9fd150baadf1f569ac153b3b02b0f727534337c1a5ca
+  languageName: node
+  linkType: hard
+
+"@backstage/plugin-permission-node@npm:^0.10.6":
+  version: 0.10.6
+  resolution: "@backstage/plugin-permission-node@npm:0.10.6"
+  dependencies:
+    "@backstage/backend-plugin-api": ^1.5.0
+    "@backstage/config": ^1.3.6
+    "@backstage/errors": ^1.2.7
+    "@backstage/plugin-auth-node": ^0.6.9
+    "@backstage/plugin-permission-common": ^0.9.3
+    "@types/express": ^4.17.6
+    express: ^4.17.1
+    express-promise-router: ^4.1.0
+    zod: ^3.22.4
+    zod-to-json-schema: ^3.20.4
+  checksum: b29c79b3d563fb2712767e50a8e0a026257df88acbeb260d666c7062fe007ea4174f142b305b6e63f159f85f20b6603bcf2df53fdd46573702df9e3b3174dcff
   languageName: node
   linkType: hard
 
@@ -5724,6 +6102,16 @@ __metadata:
     "@backstage/plugin-permission-common": ^0.9.1
     "@backstage/types": ^1.2.1
   checksum: 36307c363d3560be5d2f1374bfeaf76f1a0b7f2be11a65558c245e94a690fbb0f3e1b5dd6d9ee64ff1b21b3dcdb9257d1b96e381477638306d3cbd1f92003c02
+  languageName: node
+  linkType: hard
+
+"@backstage/plugin-search-common@npm:^1.2.21":
+  version: 1.2.21
+  resolution: "@backstage/plugin-search-common@npm:1.2.21"
+  dependencies:
+    "@backstage/plugin-permission-common": ^0.9.3
+    "@backstage/types": ^1.2.2
+  checksum: 236fe295ecb89802423389d3ad7f378c6f7411ce162614c9a20f786865b7dd4c9822c555d0a7741b3d157cb8699f2f9915ccb5aee44195d61dd52b1c044b84c3
   languageName: node
   linkType: hard
 
@@ -7206,6 +7594,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@gitbeaker/core@npm:^40.6.0":
+  version: 40.6.0
+  resolution: "@gitbeaker/core@npm:40.6.0"
+  dependencies:
+    "@gitbeaker/requester-utils": ^40.6.0
+    qs: ^6.12.2
+    xcase: ^2.0.1
+  checksum: 3d75175f8adcf04294b5cfb8f040ad372d218473ec35d02b3b59c0538eb16228fc915a92a8582ecff5cad0a8dddcddb5a90b12cfe2ce5aaf9c3b6fccffe7259b
+  languageName: node
+  linkType: hard
+
 "@gitbeaker/core@npm:^41.3.0":
   version: 41.3.0
   resolution: "@gitbeaker/core@npm:41.3.0"
@@ -7214,6 +7613,18 @@ __metadata:
     qs: ^6.12.2
     xcase: ^2.0.1
   checksum: 7b42c2af717002a54a1a6fdaa4056f2dbf6b52c6c33de68d1ad035b301609322f5b980d0da48918518dde105f4d88b39976cf4510a3d19a34e11b991c111e8fc
+  languageName: node
+  linkType: hard
+
+"@gitbeaker/requester-utils@npm:^40.6.0":
+  version: 40.6.0
+  resolution: "@gitbeaker/requester-utils@npm:40.6.0"
+  dependencies:
+    picomatch-browser: ^2.2.6
+    qs: ^6.12.2
+    rate-limiter-flexible: ^4.0.1
+    xcase: ^2.0.1
+  checksum: 8744487bdba27f2995e483473cb4c3d6926228fa2f0c842bec300e165a09508a5e5ad047d478aeebe226a8f264c92a1dcb0a21f6af316b8fe4ebb679d7283e49
   languageName: node
   linkType: hard
 
@@ -7226,6 +7637,16 @@ __metadata:
     rate-limiter-flexible: ^4.0.1
     xcase: ^2.0.1
   checksum: 28dc17e995450988e62f9e76557bf0a2fe0a41db2ffc3e088ed5c71009daaa1f26563ad67b61738c6ca5bfde9d25f067a189f4bc0a7e097d5ffa49991d24cd38
+  languageName: node
+  linkType: hard
+
+"@gitbeaker/rest@npm:^40.0.3":
+  version: 40.6.0
+  resolution: "@gitbeaker/rest@npm:40.6.0"
+  dependencies:
+    "@gitbeaker/core": ^40.6.0
+    "@gitbeaker/requester-utils": ^40.6.0
+  checksum: e2ae3f460378c0fe226ac13dcc75bcddf44c8bd594c212020d2a088016a2d1735552639cb9a8fe43f85dad0305a918aef485313c5bed8ad62e351affee21da80
   languageName: node
   linkType: hard
 
@@ -8076,6 +8497,18 @@ __metadata:
   checksum: 57d113a9db7abc73326491e29bedc88ef362e53779f9f58a1b61225e0be068ce0c54e33cd65f4a13ca46131676fb72c3ef488463c4c9af0aa89680684c55d74c
   languageName: node
   linkType: hard
+
+"@internal/backstage-plugin-catalog-backend-module-gitlab-org-transformer@workspace:^, @internal/backstage-plugin-catalog-backend-module-gitlab-org-transformer@workspace:plugins/catalog-backend-module-gitlab-org-transformer":
+  version: 0.0.0-use.local
+  resolution: "@internal/backstage-plugin-catalog-backend-module-gitlab-org-transformer@workspace:plugins/catalog-backend-module-gitlab-org-transformer"
+  dependencies:
+    "@backstage/backend-plugin-api": ^1.4.2
+    "@backstage/backend-test-utils": 1.8.0
+    "@backstage/cli": 0.34.1
+    "@backstage/plugin-catalog-backend-module-gitlab": 0.7.2
+    "@backstage/plugin-catalog-backend-module-gitlab-org": 0.2.12
+  languageName: unknown
+  linkType: soft
 
 "@internal/plugin-dynamic-plugins-info-backend@*, @internal/plugin-dynamic-plugins-info-backend@workspace:plugins/dynamic-plugins-info-backend":
   version: 0.0.0-use.local
@@ -19761,6 +20194,7 @@ __metadata:
     "@backstage/plugin-search-backend-module-catalog": 0.3.7
     "@backstage/plugin-search-backend-module-pg": 0.5.47
     "@backstage/plugin-user-settings-backend": 0.3.5
+    "@internal/backstage-plugin-catalog-backend-module-gitlab-org-transformer": "workspace:^"
     "@internal/plugin-dynamic-plugins-info-backend": "*"
     "@internal/plugin-licensed-users-info-backend": "*"
     "@internal/plugin-scalprum-backend": "*"
