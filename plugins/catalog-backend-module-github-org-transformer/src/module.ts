@@ -25,6 +25,7 @@ const customUserTransformer: UserTransformer  = async (user: GithubUser, _ctx) =
   if (userEntity) {
     userEntity.metadata.annotations = {
       ['MY_CUSTOM_ANNOTATION']: user.login,
+      ['github.com/user-login']: user.login,
     };
   }
   return userEntity;
