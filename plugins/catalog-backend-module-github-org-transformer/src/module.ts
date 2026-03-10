@@ -10,22 +10,23 @@ import { githubOrgEntityProviderTransformsExtensionPoint } from '@backstage/plug
 
 const customTeamTransformer: TeamTransformer = async (team, _ctx) => {
   // Extend default team transformer with custom annotation
-    const group = await defaultOrganizationTeamTransformer(team, _ctx);
-    if (group) {
-      group.metadata.annotations = {
-        ['MY_CUSTOM_ANNOTATION']: team.combinedSlug,
-      };
-    }
-    return group;
-  };
+  const group = await defaultOrganizationTeamTransformer(team, _ctx);
+  if (group) {
+    group.metadata.annotations = {
+      ...group.metadata.annotations,
+      ['MY_CUSTOM_ANNOTATION']: team.combinedSlug,
+    };
+  }
+  return group;
+};
 
 const customUserTransformer: UserTransformer  = async (user: GithubUser, _ctx) => {
   // Extend default user transformer with custom annotation
   const userEntity = await defaultUserTransformer(user, _ctx);
   if (userEntity) {
     userEntity.metadata.annotations = {
+      ...userEntity.metadata.annotations,
       ['MY_CUSTOM_ANNOTATION']: user.login,
-      ['github.com/user-login']: user.login,
     };
   }
   return userEntity;
